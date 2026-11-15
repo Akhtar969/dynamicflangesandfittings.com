@@ -1,0 +1,166 @@
+# Dynamic Flanges and Fittings: Website README
+
+Static website (plain HTML, CSS and JavaScript, no build step) for **Dynamic Flanges and Fittings**, MS flange manufacturer and supplier, Darukhana, Mumbai.
+
+Upload the whole `site` folder to your hosting and keep the folder structure as it is.
+
+---
+
+## 1. Folder structure
+
+```
+site/
+├── index.html            Home (target: MS flange manufacturer and supplier in Mumbai)
+├── products.html         All products (3 categories, MS vs SS table)
+├── flanges.html          MS flanges: types, Class 150/300/600 tables, process
+├── fittings.html         Pipe fittings: types, dimension tables, schedules
+├── pipes.html            MS pipes: types, schedule and IS 1239 tables
+├── about.html            About us
+├── certification.html    Udyam, GST, ISO, IEC certificates, MTC, inspection
+├── contact.html          Contact details, enquiry form, map
+├── robots.txt            Crawler rules and sitemap link
+├── sitemap.xml           8 URLs
+├── llms.txt              Short summary for AI search tools
+├── css/style.css         All shared styling (header, footer, cards, tables)
+├── js/
+│   ├── products.js       Product data (names, icons, descriptions)
+│   └── main.js           Menu, icons, carousel, enquiry form
+└── images/
+    ├── logo.png
+    ├── ms-flanges-image.png / ms-fittings-image.png / ms-pipes-image.png
+    └── certificates/     (add your certificate images here)
+```
+
+Favicon files are in the separate `favicon/` folder (see section 6).
+
+---
+
+## 2. Images you must add
+
+| File | Used on | Recommended size |
+|---|---|---|
+| `images/ms-flanges-hero.png` | flanges.html top banner | about 1600 × 640 |
+| `images/ms-fittings-hero.png` | fittings.html top banner | about 1600 × 640 |
+| `images/ms-pipes-hero.png` | pipes.html top banner | about 1600 × 640 |
+| `images/certificates/udyam-registration-certificate.png` | certification.html | portrait, about 900 × 1200 |
+| `images/certificates/gst-registration-certificate.png` | certification.html | portrait, about 900 × 1200 |
+| `images/certificates/iso-certificate.png` | certification.html | portrait, about 900 × 1200 |
+| `images/certificates/iec-certificate.png` | certification.html | portrait, about 900 × 1200 |
+
+- Until the hero images exist, each page falls back to its `ms-*-image.png`, which looks soft when stretched.
+- **Before uploading certificates, blur or mask the PAN, bank details, Aadhaar and QR codes.**
+- Keep file names exactly as above, or edit the paths in the HTML.
+- Add an Open Graph image (about 1200 × 630) if you want rich link previews.
+
+---
+
+## 3. Things to fix or confirm before going live
+
+### Must fix
+1. **Old phone number.** The correct number is **+91 98920 65723**. The old number `8433507898` is still in:
+   - `index.html` (11 places)
+   - `js/main.js` (line 83): **the enquiry form opens WhatsApp to the old number**
+   - `llms.txt`
+2. **Manufacturer vs supplier wording.** Fittings and pipes pages say you *supply* them and *manufacture* only flanges. These still say fittings and pipes are *made at our Darukhana factory* (footer text appears on every page):
+   - the footer on all 8 pages
+   - parts of `index.html`, `products.html` and `about.html`
+   Make these consistent with what you really do. Mixed claims can hurt trust and rankings.
+
+### Confirm (marked with `CONFIRM` or `VERIFY` comments in the HTML)
+- **Dimension tables** (flanges, fittings, pipes): values follow ASME B16.5, B16.9, B36.10 and IS 1239 style tables. Check them against the current standards or your own drawings.
+- **Products you offer:** the "Also ask us about" lists (socket weld, orifice, forged and so on), and the fittings and pipe types.
+- **Supply and process steps:** sourcing, inspection and flange manufacturing steps.
+- **Industries served:** the "Industries we serve" box.
+- **Classes you make:** Class 150, 300 and 600 flanges.
+- **Service areas:** Navi Mumbai, Thane, Pune, Maharashtra and other states.
+- **ISO and IEC:** these belong to the parent company. Add the parent company name, ISO standard, certifying body and validity date on the certification page.
+- **Missing facts:** year established, machinery, capacity and business hours (HTML comments mark the spots on about.html and contact.html).
+
+Search the project for `CONFIRM`, `VERIFY` and `OWNER` to find every place.
+
+---
+
+## 4. How to edit common things
+
+| Task | Where |
+|---|---|
+| Phone, email, address | Every HTML page (top bar, footer, floating buttons) and `js/main.js` (form), `llms.txt` |
+| Colours and fonts | `css/style.css`, `:root` variables at the top |
+| Home and products category cards | Static HTML in `index.html` and `products.html` |
+| Contact form product list | `js/products.js` (fills the dropdown) |
+| FAQ text | Visible FAQ **and** the matching FAQPage JSON-LD in the same file. Keep the two identical. |
+| Page title, description, canonical | Each page's `<head>` |
+
+The header, footer and top bar are repeated on each page, so a change to the menu or footer must be made in all 8 HTML files.
+
+---
+
+## 5. SEO setup
+
+Each page has a unique title, meta description, canonical link, Open Graph and Twitter tags, one H1, structured data (JSON-LD), breadcrumbs and internal links.
+
+| Page | Main keyword focus |
+|---|---|
+| index.html | MS flange manufacturer and supplier in Mumbai |
+| flanges.html | MS flanges manufacturer in Mumbai, Class 150/300/600 |
+| fittings.html | MS pipe fittings supplier in Mumbai, sizes and schedules |
+| pipes.html | MS pipes supplier in Mumbai, ERW, seamless, schedules |
+| products.html | Industrial flanges and fittings manufacturer in Mumbai |
+| certification.html | Industrial flange quality certification |
+| about.html | MS flanges manufacturing company in Mumbai |
+| contact.html | MS flanges supplier contact in Mumbai |
+
+**After launch**
+1. Submit `https://dynamicflangesandfittings.com/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+2. Check the structured data with Google's Rich Results Test.
+3. Run PageSpeed Insights on the home page and the flanges page.
+4. Claim and complete the Google Business Profile with the Darukhana address, categories and photos, and keep name, address and phone the same everywhere.
+5. List the business on IndiaMART and TradeIndia with the same details and a link to the site.
+6. Collect genuine customer reviews.
+7. Update `lastmod` dates in `sitemap.xml` when pages change.
+
+**Ideas for more pages (search data shows demand):** Table E flange dimensions, IS 1538 flange dimensions, and city pages such as Pune, Thane and Navi Mumbai.
+
+No one can guarantee a first-position ranking. Rankings also depend on backlinks, reviews, your Google Business Profile and how competitors respond.
+
+---
+
+## 6. Favicon
+
+Files are in `favicon/`: `favicon.svg`, `favicon.ico`, `favicon-48x48.png`, `favicon-96x96.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`.
+
+Upload them to the site root, then replace the old emoji favicon line in each page's `<head>` with:
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#073B75">
+```
+
+---
+
+## 7. Testing checklist
+
+- [ ] Open all 8 pages; check the menu on desktop and on a phone.
+- [ ] Footer looks right at 360 px width.
+- [ ] Contact form: submit a test enquiry, confirm WhatsApp opens with the **new** number.
+- [ ] "Request quote" buttons pre-select the product on the contact page.
+- [ ] Dimension table tabs work on flanges, fittings and pipes pages.
+- [ ] Certificate images open large when clicked.
+- [ ] Hero and carousel images load and are not stretched.
+- [ ] No broken links, and `robots.txt` and `sitemap.xml` open in the browser.
+- [ ] Rich Results Test shows no errors.
+
+---
+
+## 8. Contact details used on the site
+
+- **Business:** Dynamic Flanges and Fittings
+- **Contact person:** Khan Mohd. Jayed
+- **Phone / WhatsApp:** +91 98920 65723
+- **Email:** sales@dynamicflangesandfittings.com, info@dynamicflangesandfittings.com
+- **Factory:** Gala No. 10, Plot 255, Mehta Lane, Darukhana, Mumbai 400010
+- **Registered office:** Shop No. 5, Ground Floor, Qashmi Palace, Hissa No. 3, Kadar Palace, Near Kausa Jama Masjid, Kausa, Mumbra 400612
+- **GSTIN:** 27ETUPK7095C2Z0
