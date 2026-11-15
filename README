@@ -39,9 +39,9 @@ Favicon files are in the separate `favicon/` folder (see section 6).
 
 | File | Used on | Recommended size |
 |---|---|---|
-| `images/ms-flanges-hero.png` | flanges.html top banner | about 1600 × 640 |
-| `images/ms-fittings-hero.png` | fittings.html top banner | about 1600 × 640 |
-| `images/ms-pipes-hero.png` | pipes.html top banner | about 1600 × 640 |
+| `images/ms-flanges-image.png` | flanges.html top banner | about 1600 × 640 |
+| `images/ms-fittings-image.png` | fittings.html top banner | about 1600 × 640 |
+| `images/ms-pipes-image.png` | pipes.html top banner | about 1600 × 640 |
 | `images/certificates/udyam-registration-certificate.png` | certification.html | portrait, about 900 × 1200 |
 | `images/certificates/gst-registration-certificate.png` | certification.html | portrait, about 900 × 1200 |
 | `images/certificates/iso-certificate.png` | certification.html | portrait, about 900 × 1200 |
